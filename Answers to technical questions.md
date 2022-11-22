@@ -32,17 +32,24 @@ var person = new Person
 };
 ```
 
-3. To begin with, I investigate where the slow down is: CPU, memory, or a 3rd-party service. In our projects, we implement Metrics using Prometheus+Grafana and Tracing using OpenTelemetry+Zipkin but any other APM tools are fine. Initially, we realize we have performance problems somewhere in the application when using these two.
+3. How would you track down a performance issue in production? Have you ever had to do this?
+
+To begin with, I investigate where the slow down is: CPU, memory, or a 3rd-party service. In our projects, we implement Metrics using Prometheus+Grafana and Tracing using OpenTelemetry+Zipkin but any other APM tools are fine. Initially, we realize we have performance problems somewhere in the application when using these two.
 After finding the problematic endpoint/method, we try to track down the underlying issue using dotMemory/dotTrace if we are able to reproduce that problem in our local environment. If not, we run `dotnet-dump`, `dotnet-gcdump`, or `dotnet-trace` on our production environment pods (or on Sidecar containers), and we're copying the outcome (memory dumps) to our local machine and investigate them using `Perfview`, `dotMemory`, `dotTrace`, or `Visual Studio Profiler`.
 
 
-4. The last thing that I learned was via ["Async Expert"](https://asyncexpert.com) course by Dotnetos academy, and I learn async internals in .NET and how it is managed in .NET Runtime and OS.
+4. What was the latest technical book you have read or tech conference you have been to? What did you
+learn?
+
+The last thing that I learned was via ["Async Expert"](https://asyncexpert.com) course by Dotnetos academy, and I learn async internals in .NET and how it is managed in .NET Runtime and OS.
 
 
-5. I think it was a simple task to understand different skill levels of the candidate, including .NET, Design, OOP, and REST principles. We can improve it and extend it a lot.
+5. What do you think about this technical assessment?
+
+I think it was a simple task to understand different skill levels of the candidate, including .NET, Design, OOP, and REST principles. We can improve it and extend it a lot.
 
 
-6.
+6. Please, describe yourself using JSON.
 
 ```json 
 {
