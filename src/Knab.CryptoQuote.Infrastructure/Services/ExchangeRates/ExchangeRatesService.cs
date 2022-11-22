@@ -11,17 +11,17 @@ public sealed class ExchangeRatesService : IExchangeRateService
     private readonly HttpClient _exchangeRatesClient;
     private readonly ExchangeApiOptions _exchangeOptions;
 
-    public ExchangeRatesService(HttpClient exchangeRatesClient,
+    public ExchangeRatesService(IHttpClientFactory httpClientFactory,
         IOptions<ExchangeApiOptions> exchangeOptions)
     {
-        _exchangeRatesClient = exchangeRatesClient;
+        _exchangeRatesClient = httpClientFactory.CreateClient(nameof(ExchangeApiOptions.ExchangeRates));
         _exchangeOptions = exchangeOptions.Value;
     }
     
     public async Task<CryptoCurrency> GetQuotesByCryptoAsync(string cryptoCurrencyCode, CancellationToken cancellationToken)
     {
         var currencyCodes = string.Join(',', Enum.GetNames(typeof(CurrencyCode)));
-        var endpoint = string.Format(_exchangeOptions.CoinMarketCap.RatesEndpoint, cryptoCurrencyCode, currencyCodes);
+        var endpoint = string.Format(_exchangeOptions.ExchangeRates.RatesEndpoint, currencyCodes, cryptoCurrencyCode);
         
         var response = await _exchangeRatesClient.GetFromJsonAsync<ExchangeRateApiResponse>(endpoint, cancellationToken);
 

@@ -13,11 +13,11 @@ public sealed class CoinMarketCapService : IExchangeRateService
     private readonly ExchangeApiOptions _exchangeOptions;
     private readonly ILogger<CoinMarketCapService> _logger;
 
-    public CoinMarketCapService(HttpClient coinMarketCapClient,
+    public CoinMarketCapService(IHttpClientFactory httpClientFactory,
         IOptions<ExchangeApiOptions> exchangeOptions,
         ILogger<CoinMarketCapService> logger)
     {
-        _coinMarketCapClient = coinMarketCapClient;
+        _coinMarketCapClient = httpClientFactory.CreateClient(nameof(ExchangeApiOptions.CoinMarketCap));
         _exchangeOptions = exchangeOptions.Value;
         _logger = logger;
     }
@@ -32,17 +32,16 @@ public sealed class CoinMarketCapService : IExchangeRateService
                 try
                 {
                     var price = await GetPriceAsync(cryptoCurrencyCode, currency, cancellationToken);
-                    return (currency, price, IsSuccesful: true);
+                    return (currency, price);
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "An error occurred during fetching rates for {Currency}", currency);
-                    return (string.Empty, 0, IsSuccesful: false);
+                    throw;
                 }
             });
 
         var quotes = (await Task.WhenAll(prices))
-            .Where(rate => rate.IsSuccesful)
             .Select(rate => new Quote(Enum.Parse<CurrencyCode>(rate.currency), rate.price));
         
         return new(cryptoCurrencyCode, quotes);

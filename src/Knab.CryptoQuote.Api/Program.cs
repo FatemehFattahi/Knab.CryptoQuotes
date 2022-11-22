@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 using Knab.CryptoQuote.Api.Extensions;
-using Knab.CryptoQuote.Application.Services;
 using Knab.CryptoQuote.Domain;
 using Knab.CryptoQuote.Infrastructure;
+using Knab.CryptoQuote.Infrastructure.Services;
 using Microsoft.AspNetCore.Http.Json;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args).UseSerilog();
@@ -22,9 +22,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapGet("/quotes/{cryptoCode:required}", async (string cryptoCode, 
-        IExchangeRateService exchangeRateService, CancellationToken cancellationToken) =>
+    ExchangeRateComposer exchangeRateComposer, CancellationToken cancellationToken) =>
 {
-    var cryptoRate = await exchangeRateService.GetQuotesByCryptoAsync(cryptoCode, cancellationToken);
+    var cryptoRate = await exchangeRateComposer.GetQuotesByCryptoAsync(cryptoCode, cancellationToken);
     return TypedResults.Ok(cryptoRate);
 })
 .WithName("GetQuotesForSpecificCryptoCurrency")
