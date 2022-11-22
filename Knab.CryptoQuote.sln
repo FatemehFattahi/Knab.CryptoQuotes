@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E88938D-94F6-4C91-AABE-B906C84CAA9A}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FD845C4F-D3BB-4076-ABEE-69BB1CFCAA4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E0E0324C-A65F-413A-BE95-85B0510E51B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.CryptoQuote.Api", "src\Knab.CryptoQuote.Api\Knab.CryptoQuote.Api.csproj", "{7E221351-CB2B-4F80-A881-D630F9C5F313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.CryptoQuote.Domain", "src\Knab.CryptoQuote.Domain\Knab.CryptoQuote.Domain.csproj", "{6F660602-6A21-44C2-8E85-FF2025239B95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.CryptoQuote.Application", "src\Knab.CryptoQuote.Application\Knab.CryptoQuote.Application.csproj", "{2C039501-769C-47FD-B8C0-BBF4D7A3A4B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.CryptoQuote.Infrastructure", "src\Knab.CryptoQuote.Infrastructure\Knab.CryptoQuote.Infrastructure.csproj", "{284F3E9F-2812-42AE-984A-43B0F19E7EBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.CryptoQuote.UnitTests", "test\Knab.CryptoQuote.UnitTests\Knab.CryptoQuote.UnitTests.csproj", "{CB268132-84EA-46B9-83ED-4A24C2370558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.CryptoQuote.IntegrationTests", "test\Knab.CryptoQuote.IntegrationTests\Knab.CryptoQuote.IntegrationTests.csproj", "{7E281720-9AA0-4ED5-BDA4-A3E27425E1A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E221351-CB2B-4F80-A881-D630F9C5F313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E221351-CB2B-4F80-A881-D630F9C5F313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E221351-CB2B-4F80-A881-D630F9C5F313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E221351-CB2B-4F80-A881-D630F9C5F313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F660602-6A21-44C2-8E85-FF2025239B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F660602-6A21-44C2-8E85-FF2025239B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F660602-6A21-44C2-8E85-FF2025239B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F660602-6A21-44C2-8E85-FF2025239B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C039501-769C-47FD-B8C0-BBF4D7A3A4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C039501-769C-47FD-B8C0-BBF4D7A3A4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C039501-769C-47FD-B8C0-BBF4D7A3A4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C039501-769C-47FD-B8C0-BBF4D7A3A4B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{284F3E9F-2812-42AE-984A-43B0F19E7EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284F3E9F-2812-42AE-984A-43B0F19E7EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284F3E9F-2812-42AE-984A-43B0F19E7EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284F3E9F-2812-42AE-984A-43B0F19E7EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB268132-84EA-46B9-83ED-4A24C2370558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB268132-84EA-46B9-83ED-4A24C2370558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB268132-84EA-46B9-83ED-4A24C2370558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB268132-84EA-46B9-83ED-4A24C2370558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E281720-9AA0-4ED5-BDA4-A3E27425E1A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E281720-9AA0-4ED5-BDA4-A3E27425E1A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E281720-9AA0-4ED5-BDA4-A3E27425E1A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E281720-9AA0-4ED5-BDA4-A3E27425E1A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E221351-CB2B-4F80-A881-D630F9C5F313} = {FD845C4F-D3BB-4076-ABEE-69BB1CFCAA4D}
+		{6F660602-6A21-44C2-8E85-FF2025239B95} = {FD845C4F-D3BB-4076-ABEE-69BB1CFCAA4D}
+		{2C039501-769C-47FD-B8C0-BBF4D7A3A4B0} = {FD845C4F-D3BB-4076-ABEE-69BB1CFCAA4D}
+		{284F3E9F-2812-42AE-984A-43B0F19E7EBE} = {FD845C4F-D3BB-4076-ABEE-69BB1CFCAA4D}
+		{CB268132-84EA-46B9-83ED-4A24C2370558} = {E0E0324C-A65F-413A-BE95-85B0510E51B9}
+		{7E281720-9AA0-4ED5-BDA4-A3E27425E1A8} = {E0E0324C-A65F-413A-BE95-85B0510E51B9}
+	EndGlobalSection
+EndGlobal
