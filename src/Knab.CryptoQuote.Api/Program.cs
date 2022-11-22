@@ -16,22 +16,19 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 WebApplication app = builder.Build();
 app.UseGlobalExceptionHandler();
+app.UseSwagger();
+app.UseSwaggerUI();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.MapGet("/quotes/{cryptoCode:required}", async (string cryptoCode,
+        IExchangeRateComposer exchangeRateComposer, CancellationToken cancellationToken) =>
+    {
+        var cryptoRate = await exchangeRateComposer.GetQuotesByCryptoAsync(cryptoCode, cancellationToken);
 
-app.MapGet("/quotes/{cryptoCode:required}", async (string cryptoCode, 
-    IExchangeRateComposer exchangeRateComposer, CancellationToken cancellationToken) =>
-{
-    var cryptoRate = await exchangeRateComposer.GetQuotesByCryptoAsync(cryptoCode, cancellationToken);
-    return TypedResults.Ok(cryptoRate);
-})
-.WithName("GetCryptoQuotes")
-.WithOpenApi()
-.Produces<CryptoCurrency>();
+        return TypedResults.Ok(cryptoRate);
+    })
+    .WithName("GetCryptoQuotes")
+    .WithOpenApi()
+    .Produces<CryptoCurrency>();
 
 await app.RunAsync(app.Lifetime.ApplicationStopped);
 

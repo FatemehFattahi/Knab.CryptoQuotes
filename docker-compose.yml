@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  cryptoquotes:
+    image: cryptoquotes:latest
+    container_name: cryptoquotes
+    build:
+      context: .
+      dockerfile: ./src/Knab.CryptoQuote.Api/Dockerfile
+    ports:
+      - "5000:80"
