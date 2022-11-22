@@ -6,7 +6,7 @@ using Polly.Wrap;
 
 namespace Knab.CryptoQuote.Infrastructure.Services;
 
-public class ExchangeRateComposer : IExchangeRateService
+public class ExchangeRateComposer : IExchangeRateComposer
 {
     private IExchangeRateService _currentlyUsingExchangeRateService;
     private readonly IEnumerable<IExchangeRateService> _exchangeRateServices;

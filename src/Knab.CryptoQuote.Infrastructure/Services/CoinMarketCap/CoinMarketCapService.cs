@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Nodes;
 using Knab.CryptoQuote.Application.Services;
 using Knab.CryptoQuote.Domain;
+using Knab.CryptoQuote.Domain.Exceptions;
 using Knab.CryptoQuote.Infrastructure.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -54,9 +55,16 @@ public sealed class CoinMarketCapService : IExchangeRateService
         var endpoint = string.Format(_exchangeOptions.CoinMarketCap.RatesEndpoint, cryptoCurrencyCode, currencyCode);
         var jsonResponse = await _coinMarketCapClient.GetStringAsync(endpoint, cancellationToken);
 
-        return JsonNode.Parse(jsonResponse)!
+        var dataNode = JsonNode.Parse(jsonResponse)!
             ["data"]!
-            [cryptoCurrencyCode.ToUpperInvariant()]!
+            [cryptoCurrencyCode.ToUpperInvariant()]!;
+
+        if (dataNode.ToString() == "[]")
+        {
+            throw new AppException($"No response found for currency `{cryptoCurrencyCode}`");
+        }
+        
+        return dataNode
             [0]!
             ["quote"]!
             [currencyCode.ToUpperInvariant()]!

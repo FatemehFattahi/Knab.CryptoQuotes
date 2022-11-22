@@ -10,10 +10,10 @@ public sealed class CryptoCurrency
         }
 
         CryptoCurrencyCode = cryptoCurrencyCode;
-        Quotes = quotes.ToList();
+        Quotes = quotes;
     }
     
     public string CryptoCurrencyCode { get; }
     
-    public List<Quote> Quotes { get; }
+    public IEnumerable<Quote> Quotes { get; }
 }

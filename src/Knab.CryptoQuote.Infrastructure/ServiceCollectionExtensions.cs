@@ -15,7 +15,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddCoinMarketCap();
         services.AddExchangeRates();
-        services.AddSingleton<ExchangeRateComposer>();
+        services.AddSingleton<IExchangeRateComposer, ExchangeRateComposer>();
         
         services.AddOptions(configuration);
         
