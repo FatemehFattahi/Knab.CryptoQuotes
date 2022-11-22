@@ -4,11 +4,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <!-- Serilog -->
+        <PackageReference Include="Serilog.AspNetCore" />
+        <PackageReference Include="Serilog.Sinks.Async" />
+
+        <!-- Miscellaneous -->
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
         <PackageReference Include="Swashbuckle.AspNetCore" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
+      <ProjectReference Include="..\Knab.CryptoQuote.Infrastructure\Knab.CryptoQuote.Infrastructure.csproj" />
     </ItemGroup>
 </Project>
