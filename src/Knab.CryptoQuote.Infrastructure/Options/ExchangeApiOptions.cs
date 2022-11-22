@@ -8,14 +8,17 @@ public sealed class ExchangeApiOptions
     
     public class ExchangeApiBase
     {
-        public ExchangeApiBase(string url, string apiKey, string ratesEndpoint)
+        public ExchangeApiBase(string url, string apiKey, string apiKeyHeaderName, string ratesEndpoint)
         {
             Url = url;
+            ApiKeyHeaderName = apiKeyHeaderName;
             ApiKey = apiKey;
             RatesEndpoint = ratesEndpoint;
         }
         
         public required string Url { get; init; }
+        
+        public required string ApiKeyHeaderName { get; init; }
         
         public required string ApiKey { get; init; }
         
